@@ -23,14 +23,6 @@ public class TicTacToeFrame extends JFrame {
     public TicTacToeFrame(){
         mainPnl = new JPanel();
         mainPnl.setLayout(new BorderLayout());
-        /*createPlayPanel();
-        createStatsPanel();
-        createOutputPanel();
-
-
-        mainPnl.add(playPnl, BorderLayout.NORTH);
-        mainPnl.add(statsPnl, BorderLayout.CENTER);
-        mainPnl.add(outputPnl, BorderLayout.SOUTH);*/
 
         createTopPnl();
         createTTTBoard();
