@@ -16,7 +16,7 @@ public class TicTacToeFrame extends JFrame {
     boolean invalidMoveFLag = false;
     private static final int ROW = 3;
     private static final int COL = 3;
-    private JButton[][] board = new JButton[ROW][COL];
+    TicTacToeTile[][] board = new TicTacToeTile[ROW][COL];
     JPanel boardPnl;
 
 
@@ -82,12 +82,12 @@ public class TicTacToeFrame extends JFrame {
     public void createTTTBoard(){
         boardPnl = new JPanel();
         boardPnl.setLayout(new GridLayout(3,3));
-        //board = new JButton[3][3];
 
         for( int row = 0; row < 3; row++)
             for(int col= 0; col < 3; col++)
             {
-                board[row][col] = new JButton(" ");
+                board[row][col] = new TicTacToeTile(row, col);
+                board[row][col].setText(" ");
                 board[row][col].addActionListener((ActionEvent ae) -> playTicTacToe(ae));
                 boardPnl.add(board[row][col]);
             }
@@ -103,6 +103,7 @@ public class TicTacToeFrame extends JFrame {
 
             // figures out which of the buttons on the grid the player picks
             JButton playChoice = (JButton) ae.getSource();
+
 
             if(isValidChoice(playChoice)) {
                 playChoice.setText(player);
