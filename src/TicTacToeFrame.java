@@ -119,14 +119,28 @@ public class TicTacToeFrame extends JFrame {
             if (moveCnt >= MOVES_FOR_WIN) {
                 if (isWin()) {
                     isWinOrTie = true;
-                    JOptionPane.showMessageDialog(null, "Player " + player + "won", "End Game", JOptionPane.INFORMATION_MESSAGE);
+                    int reply = JOptionPane.showConfirmDialog(null, "Player " + player + " won, do you want to play again?", "End Game", JOptionPane.YES_NO_OPTION);
+                    if (reply == JOptionPane.YES_OPTION) {
+                        JOptionPane.showMessageDialog(null, "Starting the next game on OK");
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Quitting on OK...");
+                        System.exit(0);
+                    }
                     clearBoard();
                 }
             }
             if (moveCnt >= MOVES_FOR_TIE) {
                 if (isTie()) {
                     isWinOrTie = true;
-                    JOptionPane.showMessageDialog(null, "It's a tie", "End Game", JOptionPane.INFORMATION_MESSAGE);
+                    int reply = JOptionPane.showConfirmDialog(null, "It's a tie, do you want to play again?", "End Game", JOptionPane.YES_NO_OPTION);
+                    if (reply == JOptionPane.YES_OPTION) {
+                        JOptionPane.showMessageDialog(null, "Starting the next game on OK");
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Quitting on OK...");
+                        System.exit(0);
+                    }
                     clearBoard();
                 }
             }
